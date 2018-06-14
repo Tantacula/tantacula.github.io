@@ -54020,11 +54020,11 @@ function isNumeric(n) {
                     response.forEach(function (user) {
                         var foundAttributes = [];
                         var score = 0;
-                        if ('deactivated' in user && user.deactivated == 'banned') {
-                            console.log('пользователь забанен');
-                            score = _this6.scorePoints['deactivated'];
-                            foundAttributes.push('deactivated');
-                        } else {
+                        if ('deactivated' in user /* && user.deactivated == 'banned'*/) {
+                                console.log('пользователь забанен');
+                                score = _this6.scorePoints['deactivated'];
+                                foundAttributes.push('deactivated');
+                            } else {
                             if (user.screen_name === 'id' + user.id) {
                                 score += _this6.scorePoints['auto_name'];
                                 foundAttributes.push('auto_name');
