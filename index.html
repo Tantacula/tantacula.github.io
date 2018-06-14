@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Проверка на ботов вконтакте</title>
+
+    <!-- Styles -->
+    <link href="/css/app.css" rel="stylesheet">
+    <meta name="csrf-token" content="null">
+
+    <script>
+        var appSettings = {
+            vkAppId: 6604951
+        };
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function (d, w, c) {
+            (w[c] = w[c] || []).push(function() {
+                try {
+                    w.yaCounter49241389 = new Ya.Metrika2({
+                        id:49241389,
+                        clickmap:true,
+                        trackLinks:true,
+                        accurateTrackBounce:true,
+                        webvisor:true
+                    });
+                } catch(e) { }
+            });
+
+            var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () { n.parentNode.insertBefore(s, n); };
+            s.type = "text/javascript";
+            s.async = true;
+            s.src = "https://mc.yandex.ru/metrika/tag.js";
+
+            if (w.opera == "[object Opera]") {
+                d.addEventListener("DOMContentLoaded", f, false);
+            } else { f(); }
+        })(document, window, "yandex_metrika_callbacks2");
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/49241389" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</head>
+<body>
+<div id="app">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="app-navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active" v-cloak>
+                        <a
+                                v-if="!user"
+                                class="clickable"
+                                @click="auth">
+                            <img src="/images/ic_head_logo.svg" style="margin-right:10px;">Войти
+                        </a>
+
+                        <div
+                                class="dropdown"
+                                v-if="user">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <img
+                                        :src="user.photo_50"
+                                        class="img-responsive img-circle"
+                                        style="display:inline-block; margin-right: 10px;">
+                                {{ user.first_name + ' ' + user.last_name }}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li>
+                                    <a
+                                            href="#"
+                                            @click.prevent="logout">Выйти</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div style="margin-top:90px;">
+
+        <div class="container">
+            <div class="row col-xs-12">
+                <bots-checker></bots-checker>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container footer-inner-container1">
+        <div class="navbar-default pull-right">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="mailto:bonesbrain@gmail.com" target="_blank">Связаться с автором</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://vk.com/js/api/openapi.js?154" type="text/javascript"></script>
+<script src="/js/app-bots.js"></script>
+</body>
+</html>
+
